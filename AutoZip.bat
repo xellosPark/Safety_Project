@@ -1,0 +1,1 @@
+rar a -ag+"YYYY-MM-DD_HHmm" -r Safety_dlg.rar *.cpp *.h *.bat rar.exe *.txt *.bmp *.rc2 *.dll *.sln *.png *.lib *.rc *.vcproj *.vcxproj *.filters *.ico *.mfcribbon-ms
