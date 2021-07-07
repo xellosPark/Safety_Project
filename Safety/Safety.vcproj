@@ -190,6 +190,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\FileOperations.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\INIRecipe.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Safety.cpp"
 				>
 			</File>
@@ -225,6 +233,14 @@
 			>
 			<File
 				RelativePath=".\DlgSafetyView.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FileOperations.h"
+				>
+			</File>
+			<File
+				RelativePath=".\INIRecipe.h"
 				>
 			</File>
 			<File

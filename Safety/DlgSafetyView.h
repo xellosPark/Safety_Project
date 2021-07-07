@@ -3,8 +3,10 @@
 #ifdef _WIN32_WCE
 #error "Windows CE에서는 CDHtmlDialog가 지원되지 않습니다."
 #endif 
-
 // CDlgSafetyView 대화 상자입니다.
+
+#define TYPE_TITLE_MAX 16
+
 
 class CDlgSafetyView : public CDialogEx
 {
@@ -14,8 +16,32 @@ public:
 	CDlgSafetyView(CWnd* pParent = NULL);   // 표준 생성자입니다.
 	virtual ~CDlgSafetyView();
 
+	struct _SAFETY_DATA
+	{
+		CRect	m_rtPos1;
+		CRect	m_rtPos2;
+		CRect	m_rtPosBG;
+		CString m_strKRTitle;
+		CString m_strCNTitle;
+		int		m_state;
+
+		_SAFETY_DATA ()
+		{
+			m_strKRTitle = "";
+			m_strCNTitle = "";
+			m_state = 0;
+		}
+	};
+
 // 대화 상자 데이터입니다.
 	enum { IDD = IDD_DLG_SAFETY};
+
+	enum tSelectType
+	{
+		SELECT_READY	=0,
+		SELECT_ON,
+		SELECT_OFF
+	};
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
@@ -26,9 +52,24 @@ public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
 	afx_msg void OnPaint();
-	BOOL SetMainImageLoad();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+		
+public:
+	BOOL SetMainImageLoad();
+	BOOL CheckExistItem(int nKey);
+
+	void GetItemsStateValue(int order, int& nvalue);
+	BOOL SetItemsStateValue(int order, int nState);
+	
+	BOOL SetItemsValue(int order, int nState, CString strKRText, CString strCNText);
+	void GetItemsValue( int order, CDlgSafetyView::_SAFETY_DATA& Data );
+	
+	void ClearMapDataInfo() { m_mapDataInfo.clear(); }
+	void AddMapDataInfo(int nkey,const CDlgSafetyView::_SAFETY_DATA& DataInfo);
 
 public:
-	CRect rcCheckLoad[10];
+	map<int, _SAFETY_DATA> m_mapDataInfo;
+	CStatic m_ctrTex[TYPE_TITLE_MAX][2];
+	
 };
