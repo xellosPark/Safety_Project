@@ -65,6 +65,8 @@ BEGIN_MESSAGE_MAP(CSafetyDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTON1, &CSafetyDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDOK, &CSafetyDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON2, &CSafetyDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -158,4 +160,19 @@ void CSafetyDlg::OnBnClickedButton1()
 {
 	CDlgSafetyView Dlg;
 	Dlg.DoModal();
+}
+
+void CSafetyDlg::OnBnClickedOk()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	OnOK();
+}
+
+void CSafetyDlg::OnBnClickedButton2()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	RECT rect;
+	GetDlgItem(IDC_STATIC_TEST1)->GetWindowRect(&rect);
+
+	ScreenToClient(&rect);
 }

@@ -5,8 +5,6 @@
 #endif 
 // CDlgSafetyView 대화 상자입니다.
 
-#define TYPE_TITLE_MAX 16
-
 
 class CDlgSafetyView : public CDialogEx
 {
@@ -21,12 +19,17 @@ public:
 		CRect	m_rtPos1;
 		CRect	m_rtPos2;
 		CRect	m_rtPosBG;
+		CRect	m_rtPosSelect;
 		CString m_strKRTitle;
 		CString m_strCNTitle;
 		int		m_state;
 
 		_SAFETY_DATA ()
 		{
+			m_rtPos1 = 0,0,0,0;
+			m_rtPos2 = 0,0,0,0;
+			m_rtPosBG = 0,0,0,0;
+			m_rtPosSelect = 0,0,0,0;
 			m_strKRTitle = "";
 			m_strCNTitle = "";
 			m_state = 0;
@@ -54,11 +57,15 @@ public:
 	afx_msg void OnPaint();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-		
+			
 public:
 	BOOL SetMainImageLoad();
+	BOOL SetMainImageCBitmapLoad();
+	BOOL SetCBitmaptoBitmapLoad();
 	BOOL CheckExistItem(int nKey);
 
+	BOOL SetBitmaptoCBitmapLoad();
+	BOOL SetBitmaptoCBitmapView();
 	void GetItemsStateValue(int order, int& nvalue);
 	BOOL SetItemsStateValue(int order, int nState);
 	
@@ -67,9 +74,20 @@ public:
 	
 	void ClearMapDataInfo() { m_mapDataInfo.clear(); }
 	void AddMapDataInfo(int nkey,const CDlgSafetyView::_SAFETY_DATA& DataInfo);
-
+	void SetTitleBoardView(int index);
+	void addButton(int ikey, CButton* createButton);
+	void ClearButton();
 public:
 	map<int, _SAFETY_DATA> m_mapDataInfo;
-	CStatic m_ctrTex[TYPE_TITLE_MAX][2];
+	CStatic m_ctrTex[TYPE_TITLE_MAX][TYPE_TITLE_MIN];
+	CButton m_ctrBnt[TYPE_TITLE_MAX];
 	
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	
+	map<int, CButton*> m_mapButton;
+	CFont m_font;
+protected:
+	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
+public:
+	afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
 };

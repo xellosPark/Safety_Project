@@ -94,9 +94,11 @@ EXSTYLE WS_EX_APPWINDOW
 CAPTION "Safety"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "확인",IDOK,209,179,50,14
-    PUSHBUTTON      "취소",IDCANCEL,263,179,50,14
+    DEFPUSHBUTTON   "확인",IDOK,209,178,50,14
+    PUSHBUTTON      "취소",IDCANCEL,263,178,50,14
     PUSHBUTTON      "Button1",IDC_BUTTON1,231,12,69,18
+    LTEXT           "Static",IDC_STATIC_TEST1,74,60,92,8
+    PUSHBUTTON      "Button2",IDC_BUTTON2,237,130,69,23
 END
 
 IDD_DLG_SAFETY DIALOGEX 0, 0, 654, 121
@@ -107,6 +109,19 @@ BEGIN
     DEFPUSHBUTTON   "확인",IDOK,472,24,50,14
     PUSHBUTTON      "취소",IDCANCEL,527,23,50,14
     LTEXT           "Static",IDC_STATIC_MOUSE_POS,425,23,39,14
+END
+
+IDD_DLG_TITLE_BOARD DIALOGEX 0, 0, 400, 52
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,337,6,55,17
+    PUSHBUTTON      "취소",IDCANCEL,337,28,55,17
+    EDITTEXT        IDC_EDIT_KR_BOARD,55,7,276,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_CN_BOARD,55,29,276,16,ES_AUTOHSCROLL
+    CTEXT           "한 국 어   :",IDC_STATIC,8,11,46,8
+    CTEXT           "중 국  어   :",IDC_STATIC,8,33,46,8
 END
 
 
@@ -170,7 +185,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         TOPMARGIN, 7
-        BOTTOMMARGIN, 193
+        BOTTOMMARGIN, 192
     END
 
     IDD_DLG_SAFETY, DIALOG
@@ -178,16 +193,17 @@ BEGIN
         LEFTMARGIN, 7
         TOPMARGIN, 7
     END
+
+    IDD_DLG_TITLE_BOARD, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 398
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 49
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// HTML
-//
-
-IDR_HTML_DLGSAFETYVIEW  HTML                    "DlgSafetyView.htm"
 
 /////////////////////////////////////////////////////////////////////////////
 //

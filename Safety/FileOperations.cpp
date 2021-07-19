@@ -132,8 +132,8 @@ bool CFileOperation::GetFileList(CString sSourceFolder, CString sExtension, CStr
 	
 	PreparePath(sSourceFolder);
 	
-	CString sFindPath;
-	sFindPath.Format("%s*.%s",sSourceFolder,sExtension);
+	CString sFindPath(_T(""));
+	sFindPath.Format(_T("%s*.%s"),sSourceFolder,sExtension);
 
 	CFileFind ff;
 	BOOL bRes = ff.FindFile(sFindPath);
@@ -172,7 +172,7 @@ bool CFileOperation::GetFileInfoList(CString sSourceFolder, CString sExtension, 
 	PreparePath(sSourceFolder);
 	
 	CString sFindPath;
-	sFindPath.Format("%s*.%s",sSourceFolder,sExtension);
+	sFindPath.Format(_T("%s*.%s"),sSourceFolder,sExtension);
 
 	CFileFind ff;
 	BOOL bRes = ff.FindFile(sFindPath);
@@ -622,10 +622,8 @@ void CFileOperation::MakeFullDir(CString& szDir)
 BOOL CFileOperation::ReturnParameter(CString& szOrigin, char cDelimeter, int nOrder,CString &szReturn)
 {
 	int iStartPos,iEndPos;
-	int nFind;
 	CString szTarget;
 	int i = 0;
-	char szErr[100];
 
 	iStartPos = 0;
 	while(1)
@@ -684,9 +682,9 @@ bool CFileOperation::DeleteFile(CString &strFolder)
 {
 	int nResult;
 	SHFILEOPSTRUCT FileOp = {0};
-	char szTemp[MAX_PATH];
+	TCHAR szTemp[MAX_PATH];
 	_tcscpy_s(szTemp, strFolder);
-	szTemp[strlen(strFolder) + 1] = NULL;
+	szTemp[strlen((LPSTR)(LPCTSTR)strFolder) + 1] = NULL;
 
 	FileOp.hwnd = NULL;
 	FileOp.wFunc = FO_DELETE;

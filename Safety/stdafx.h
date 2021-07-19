@@ -42,6 +42,11 @@
 #include <map>
 using namespace std;
 
+#include "Definition.h"
+#include <gdiplus.h>
+#pragma comment(lib,"gdiplus")
+using namespace Gdiplus;
+
 
 
 #ifdef _UNICODE
