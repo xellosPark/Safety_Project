@@ -20,8 +20,6 @@ public:
 		CRect	m_rtPos2;
 		CRect	m_rtPosBG;
 		CRect	m_rtPosSelect;
-		CString m_strKRTitle;
-		CString m_strCNTitle;
 		int		m_state;
 
 		_SAFETY_DATA ()
@@ -30,8 +28,6 @@ public:
 			m_rtPos2 = 0,0,0,0;
 			m_rtPosBG = 0,0,0,0;
 			m_rtPosSelect = 0,0,0,0;
-			m_strKRTitle = "";
-			m_strCNTitle = "";
 			m_state = 0;
 		}
 	};
@@ -90,4 +86,9 @@ protected:
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 public:
 	afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
+
+	BOOL InitBoard();
+	BOOL LoadBoardData(int index);
+private:
+	CIniFile* m_pIniRecipe;
 };
