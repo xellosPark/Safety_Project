@@ -6,6 +6,7 @@
 #define TYPE_TITLE_MIN 2
 
 //FILE PATH
-#define EQP_PATH		_T("D:\\Safety\\")
-#define EQP_DATA		_T("D:\\Safety\\Data\\")
-#define RCP_PATH		_T("D:\\Safety\\Data\\TextRecipe.ini")
+#define EQP_PATH		_T("D:\\DATA\\EQP\\Safety\\")
+#define EQP_DATA		_T("D:\\DATA\\EQP\\Safety\\Data\\")
+#define RCP_PATH		_T("D:\\DATA\\EQP\\Safety\\Data\\TextRecipe.ini")
+#define MAINT_PATH		_T("D:\\DATA\\EQP\\Safety\\MaintControl.ini")

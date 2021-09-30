@@ -5,7 +5,6 @@
 #endif 
 // CDlgSafetyView 대화 상자입니다.
 
-
 class CDlgSafetyView : public CDialogEx
 {
 	DECLARE_DYNCREATE(CDlgSafetyView)
@@ -53,15 +52,13 @@ public:
 	afx_msg void OnPaint();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-			
+	static LRESULT CALLBACK WinKeyHook(int code, WPARAM wparam, LPARAM lparam);			
+	//virtual BOOL PreTranslateMessage(MSG* pMsg);
 public:
-	BOOL SetMainImageLoad();
 	BOOL SetMainImageCBitmapLoad();
-	BOOL SetCBitmaptoBitmapLoad();
+	
 	BOOL CheckExistItem(int nKey);
 
-	BOOL SetBitmaptoCBitmapLoad();
-	BOOL SetBitmaptoCBitmapView();
 	void GetItemsStateValue(int order, int& nvalue);
 	BOOL SetItemsStateValue(int order, int nState);
 	
@@ -73,22 +70,50 @@ public:
 	void SetTitleBoardView(int index);
 	void addButton(int ikey, CButton* createButton);
 	void ClearButton();
+
+	HHOOK hook;
+
+	CRect RtCommentButton;
+	CRect RtHourButton;
+	CRect RtTempButton;
+	CRect RtUnlockButton;
+
+	CRect RtDateArea;
+	CRect RtCommentArea;
+	CRect RtHourArea;
+	CRect RtPhoneArea;
+	CRect RtContactArea;
+	CRect RtWorkerArea;
+
+	CImage m_cImageBG,m_cImageSelect;
+	CBitmap *cBitmapBG;
+	CBitmap *cBitmapSelect;	
 public:
 	map<int, _SAFETY_DATA> m_mapDataInfo;
 	CStatic m_ctrTex[TYPE_TITLE_MAX][TYPE_TITLE_MIN];
+	CStatic m_strText[7];
 	CButton m_ctrBnt[TYPE_TITLE_MAX];
 	
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
 	
 	map<int, CButton*> m_mapButton;
-	CFont m_font;
+	CFont m_font,m_font2,m_font3,m_font4,m_font5, m_fontCH;	
+	CButton* createCommentButton;
+	CButton* createHourButton;
+	CButton* createTemporaryButton;
+	CButton* createUnlockButton;
 protected:
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
-public:
-	afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
+public:	
 
 	BOOL InitBoard();
 	BOOL LoadBoardData(int index);
+	HANDLE GetProcessByName(PCSTR name);
 private:
 	CIniFile* m_pIniRecipe;
+public:
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	void OnPaintInfo();
+	afx_msg void OnDestroy();
 };

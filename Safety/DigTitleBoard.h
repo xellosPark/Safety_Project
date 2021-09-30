@@ -34,4 +34,5 @@ public:
 	CFont m_font14;
 
 	
+	afx_msg void OnBnClickedCancel();
 };

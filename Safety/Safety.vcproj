@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="2"
+			UseOfMFC="1"
 			CharacterSet="1"
 			>
 			<Tool
@@ -48,7 +48,7 @@
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				RuntimeLibrary="0"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="4"
@@ -99,8 +99,8 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="2"
-			CharacterSet="2"
+			UseOfMFC="1"
+			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -127,7 +127,7 @@
 				EnableIntrinsicFunctions="true"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -202,11 +202,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Safety.cpp"
+				RelativePath=".\MaintComment.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\SafetyDlg.cpp"
+				RelativePath=".\MaintInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\MaintPassword.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Safety.cpp"
 				>
 			</File>
 			<File
@@ -256,15 +264,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MaintComment.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MaintInfo.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MaintPassword.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
 				>
 			</File>
 			<File
 				RelativePath=".\Safety.h"
-				>
-			</File>
-			<File
-				RelativePath=".\SafetyDlg.h"
 				>
 			</File>
 			<File
@@ -281,6 +297,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath="D:\Safety\Lock_Icon.bmp"
+				>
+			</File>
 			<File
 				RelativePath=".\res\Safety.ico"
 				>

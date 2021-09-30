@@ -9,6 +9,11 @@
 #define IDR_MAINFRAME                   128
 #define IDD_DLG_SAFETY                  129
 #define IDD_DLG_TITLE_BOARD             130
+#define IDD_MAINT_INFO                  131
+#define IDD_MAINT_INFOMATION            131
+#define IDD_MAINT_INFOMATION1           132
+#define IDD_MAINT_PASSWORD              132
+#define IDD_MAINT_COMMENT               133
 #define IDC_BUTTON1                     1000
 #define IDC_STATIC_MOUSE_POS            1001
 #define IDC_STATIC_TITLE_1              1002
@@ -66,14 +71,49 @@
 #define IDC_BUTTON2                     1054
 #define IDC_STATIC_TEXT_KR              1055
 #define IDC_STATIC_TEXT_CN              1056
+#define IDC_EDIT_NAME                   1057
+#define IDC_EDIT_NUMBER                 1058
+#define IDC_EDIT_TIME                   1059
+#define IDC_EDIT_NUMBER2                1059
+#define IDC_EDIT_MAINT_HOUR             1059
+#define IDC_EDIT_INFO                   1060
+#define IDC_EDIT_MAINT_WORKER           1060
+#define IDC_BUTTON_OK                   1061
+#define IDC_EDIT_MAINT_INFO_PASSWORD    1062
+#define IDC_EDIT_MAINT_HOUR3            1062
+#define IDC_EDIT_MAINT_CHECKER          1062
+#define IDC_BUTTON_UNLOCK               1063
+#define IDC_BUTTON_TEMPORARY            1064
+#define IDC_BUTTON_CANCEL               1064
+#define IDC_STATIC_PHONE                1065
+#define IDC_STATIC_CONTACT              1066
+#define IDC_STATIC_CHECKER                  1067
+#define IDC_STATIC_WORKER               1068
+#define IDC_STATIC_HOUR                 1069
+#define IDC_BUTTON_COMMENT              1070
+#define IDC_BUTTON_HOUR                 1071
+#define IDC_STATIC_DATE                 1072
+#define IDC_CHECK_PASSWORD              1073
+#define IDC_EDIT_INFO_PASSWORD          1074
+#define IDC_EDIT_INFO_PASSWORD2         1075
+#define IDC_STATIC_REPASSWORD           1076
+#define IDC_STATIC_PHONENO              1077
+#define IDC_STATIC_CONTACT_NAME         1078
+#define IDC_STATIC_MAINT_WORK_HOUR      1079
+#define IDC_STATIC_MAINT_COMMENT        1080
+#define IDC_STATIC_MAINT_WORKER         1081
+#define IDC_STATIC_MAINT_CHECKER        1082
+#define IDC_EDIT_MAINT_COMMENT          1083
+#define IDC_STATIC_COMMENT              1084
+#define IDB_ICON_UNLOCK                 2000
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        131
+#define _APS_NEXT_RESOURCE_VALUE        135
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1057
+#define _APS_NEXT_CONTROL_VALUE         1085
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
